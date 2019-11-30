@@ -7,7 +7,8 @@
       saved: false,
       focus: false,
       loading: false,
-      message: ''
+      message: '',
+      images: ''
     },
     methods: {
       onSubmit() {
@@ -16,6 +17,11 @@
 
         let data = new FormData();
         data.append('entry.1111560776', this.message);
+        
+        // attach images
+        if (this.images.length > 5) {
+          data.append('entry.1948647566', this.images);
+        }
 
         fetch('https://docs.google.com/forms/d/e/1FAIpQLSewa4GxtAEuCm35rBQpo7LC8XY-8bq59lwyWrYpA6vLOXem1g/formResponse?embedded=true', {
           method: 'post',
@@ -23,6 +29,7 @@
         }).finally(() => {
           this.saved = true;
           this.message = '';
+          this.images = '';
           $('#message').focus();
 
           this.loading = false;

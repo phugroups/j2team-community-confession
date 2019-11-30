@@ -91,21 +91,26 @@
               <div class="row">
                 <div class="col-md-8 mx-auto text-center">
                   <h2 class="title">Confession</h2>
-                  <h5 class="description">What would you like to share with us?</h5>
+                  <h5 class="description">Bạn muốn chia sẻ điều gì với tụi mình?</h5>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-8 mx-auto">
                   <form action="#" method="post" v-on:submit.prevent="onSubmit">
                     <div class="form-group">
-                      <label for="message">Your Story</label>
-                      <textarea class="form-control confess" id="message" rows="5" required v-bind:autofocus="focus" v-model="message"></textarea>
+                      <label for="message">Câu chuyện của bạn</label>
+                      <textarea class="form-control confess" id="message" rows="5" required v-bind:autofocus="focus" v-model="message" placeholder="Bài được đăng ẩn danh, vì thế hãy thoải mái chia sẻ với tụi mình nhé!"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block btn-round" v-bind:class="{disabled: loading}">{{loading ? 'Loading...' : 'Submit'}}</button>
+                    <div class="form-group">
+                      <label for="images">Ảnh đăng kèm <span class="text-info">(nhấn nút ở dưới để up ảnh hoặc để trống nếu bạn không cần ảnh)</span></label>
+                      <textarea class="form-control confess" id="images" rows="5" v-model="images" placeholder="Nhập mỗi link ảnh một dòng..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-round" v-bind:class="{disabled: loading}">{{loading ? 'Đang gửi...' : 'Gửi bài'}}</button>
+                    <a href="https://imgur.com/upload" target="_blank" rel="noopener" class="btn btn-secondary btn-round btn-upload">Upload ảnh</a>
                   </form>
 
-                  <div class="alert alert-success fade show" role="alert" v-if="saved">
-                    <strong>Success!</strong> Your story has been saved.
+                  <div class="alert alert-success alert-round fade show" role="alert" v-if="saved">
+                    Công chuyện của bạn đã được gửi.
                   </div>
                 </div>
               </div>

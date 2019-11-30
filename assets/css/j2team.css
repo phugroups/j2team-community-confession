@@ -93,8 +93,22 @@
 
 }
 
+label,
+button[type="submit"],
+.btn-upload,
+h5.description,
+.alert-round {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 18px !important;
+}
+
 .confess {
   font-family: 'Roboto', sans-serif !important;
   font-size: 18px !important;
   color: #f96332 !important;
+  max-height: 150px !important;
+}
+
+.alert-round {
+  border-radius: 30px !important;
 }
